@@ -43,7 +43,57 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())
+        precio = 800
+        total_sin_descuento = precio*cantidad
+        descuento_50 =total_sin_descuento* 0.50
+        total = 0
+
+        
+        if cantidad >= 6:
+            alert("",f"el total con el descuento es de:$ {total_sin_descuento - descuento_50}")
+            total= total_sin_descuento - descuento_50
+
+        elif cantidad == 5 and marca == "ArgentinaLuz":
+            alert("",f"El total con el descuento es de: $ {total_sin_descuento-(total_sin_descuento*0.40)}")
+            total= total_sin_descuento - (total_sin_descuento * 0.40)
+
+        elif cantidad == 5 and marca != "ArgentinaLuz":
+            alert("",f"El total con el descuento es de: $ {total_sin_descuento-(total_sin_descuento*0.30)}")
+            total= total_sin_descuento - (total_sin_descuento * 0.30)
+
+        elif cantidad == 4 and marca == "ArgentinaLuz" or cantidad == 4 and marca=="FelipeLamparas":
+            alert("",f"El total con el descuento es de: $ {total_sin_descuento-(total_sin_descuento*0.25)}")
+            total= total_sin_descuento - (total_sin_descuento * 0.25)
+
+        elif cantidad == 4 and marca != "ArgentinaLuz" or cantidad == 4 and marca != "FelipeLamparas":
+            alert("",f"El total con el descuento es de: $ {total_sin_descuento-(total_sin_descuento*0.20)}")
+            total= total_sin_descuento - (total_sin_descuento * 0.20)
+
+        elif cantidad == 3 and marca == "ArgentinaLuz":
+            alert("",f"El total con el descuento es de: $ {total_sin_descuento-(total_sin_descuento*0.15)}")
+            total= total_sin_descuento - (total_sin_descuento * 0.15)
+
+        elif cantidad == 3 and marca == "FelipeLamparas":
+            alert("",f"El total con el descuento es de: $ {total_sin_descuento-(total_sin_descuento*0.10)}")
+            total= total_sin_descuento - (total_sin_descuento * 0.10)
+
+        elif cantidad == 3 and marca != "ArgentinaLuz" and marca != "FelipeLamparas":
+            alert("",f"El total con el descuento es de: $ {total_sin_descuento-(total_sin_descuento*0.05)}")
+            total= total_sin_descuento - (total_sin_descuento * 0.05)
+
+        else:
+            total = total_sin_descuento
+            alert("",f"EL precio final es de: $ {total}")
+
+        if total >= 4000:
+            alert("",f"Por la compra superior a 4 mil se agrega un descuento del 5%. Precio final=$ {total-(total*0.05)}")
+        else:
+            pass
+
+
+
         
     
 if __name__ == "__main__":
