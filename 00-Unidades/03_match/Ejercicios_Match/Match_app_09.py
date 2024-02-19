@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Axel
+apellido:Santander
 ---
 Ejercicio: Match_09
 ---
@@ -57,7 +57,47 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destino = self.combobox_destino.get()
+        estacion = self.combobox_estaciones.get()
+        tarifa_base = 15000
+
+        match estacion:
+            case "Invierno":
+                match destino:
+                    case "Bariloche":
+                        tarifa_total = tarifa_base + (tarifa_base*0.10) 
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+
+                    case "cordoba"|"Cataratas":
+                        tarifa_total = tarifa_base - (tarifa_base*0.10)
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+                    case "Mar del plata":
+                        tarifa_total = tarifa_base - (tarifa_base*0.20)
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+            
+            case "Verano":
+                match destino:
+                    case "Bariloche":
+                        tarifa_total = tarifa_base - (tarifa_base*0.20) 
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+                    case "Cordoba"|"Cataratas":
+                        tarifa_total = tarifa_base + (tarifa_base*0.10)
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+                    case "Mar del plata":
+                        tarifa_total = tarifa_base + (tarifa_base*0.20)
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+            
+            case "Primavera"|"Otoño":
+                match destino:
+                    case "Bariloche":
+                        tarifa_total = tarifa_base + (tarifa_base*0.20) 
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+                    case "Mar del plata"|"Cataratas":
+                        tarifa_total = tarifa_base + (tarifa_base*0.10)
+                        alert("",f"La tarifa total es de: {tarifa_total}")
+                    case "Cordoba":
+                        tarifa_total = tarifa_base
+                        alert("",f"La tarifa total es de: {tarifa_total}")
             
     
 if __name__ == "__main__":
