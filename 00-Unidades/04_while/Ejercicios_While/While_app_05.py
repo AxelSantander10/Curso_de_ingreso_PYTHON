@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Axel
+apellido:Santander
 ---
 Ejercicio: while_05
 ---
@@ -30,7 +30,13 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
-        pass
+        while True:
+            letra_usuario = prompt("","Ingrese la letra")
+            if letra_usuario == "U" or letra_usuario== "T" or letra_usuario== "N":
+                alert("","Letra correcta")
+                break
+            else:
+                alert("","Incorrecto, intente de nuevo")
             
     
 if __name__ == "__main__":

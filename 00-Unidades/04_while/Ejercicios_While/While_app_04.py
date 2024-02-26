@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Axel
+apellido:Santander
 ---
 Ejercicio: while_04
 ---
@@ -30,7 +30,16 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_numero_on_click(self):
-        pass
+        
+        while True: 
+            numero = int(prompt("","Ingrese el numero"))
+    
+            if numero>9 or numero < 1:
+                alert ("","Ingrese otro numero")
+            else:
+                alert("","El numero se encuentra entre el 1 y el 9")
+                break
+
     
 if __name__ == "__main__":
     app = App()
